@@ -1,304 +1,844 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Benjamin Gee</title>
+
+    <title>Updates | Benjamin Gee</title>
+
+    <!-- Bootstrap 5.3.3 -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts: Space Mono -->
+
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+
         /* Uniform Terminal-Inspired Global Styles with Motion GIF Background */
+
         body {
+
             font-family: 'Space Mono', monospace;
-            background-color: #050709; /* Fallback deep-space black void */
+
+        
+
             background-repeat: no-repeat;
+
             background-size: cover;
+
             background-attachment: fixed;
+
             background-position: center center;
+
             color: #c9d1d9 !important;
+
             letter-spacing: -0.02em;
+
             line-height: 1.25;
+
         }
+
+
 
         /* Consistent Links & Headings */
+
         a {
-            color: #00FFFF; /* Exact neon-cyan theme color */
+
+            color: #00f0ff;
+
             text-decoration: none;
+
             transition: color 0.2s ease-in-out;
+
         }
+
         a:hover {
+
             color: #ffffff;
+
         }
+
         h1, h2, h3, h4, h5, h6 {
+
             font-weight: 700;
+
             color: #ffffff;
+
         }
+
+
 
         /* Navbar Background Uniformity */
+
         .navbar {
+
             background-color: #0b0e11 !important;
+
             border-bottom: 1px solid #21262d !important;
+
         }
+
         .navbar-brand {
-            color: #00FFFF !important; /* Exact neon-cyan theme color */
+
+            color: #00f0ff !important;
+
         }
+
         .nav-link {
+
             color: #8b949e !important;
+
         }
+
         .nav-link:hover, .nav-link.active {
+
             color: #ffffff !important;
+
         }
+
+
 
         /* Main Content Header Card */
+
         .header-card {
+
             background-color: #0b0e11 !important;
+
             border: 1px solid #21262d !important;
+
             border-radius: 4px;
+
         }
+
+
 
         /* Solid Container Cards to isolate the content from the moving background */
+
         .blog-card, .archive-sidebar {
+
             background-color: #0b0e11 !important;
+
             border: 1px solid #21262d !important;
+
             border-radius: 4px !important;
+
         }
+
+
 
         /* Sticky Left Month Index styling */
+
         .archive-sidebar {
+
             position: sticky;
+
             top: 2rem;
+
         }
+
         .archive-link {
+
             color: #8b949e;
+
             display: block;
+
             padding: 4px 0;
+
         }
+
         .archive-link:hover {
-            color: #00FFFF; /* Exact neon-cyan theme color */
+
+            color: #00f0ff;
+
         }
+
+
 
         /* Uniform Custom Bullet Points */
+
         ul {
+
             list-style: none;
+
             padding-left: 1.2rem;
+
         }
+
         ul li::before {
+
             content: ">";
-            color: #00FFFF; /* Exact neon-cyan theme color */
+
+            color: #00f0ff;
+
             font-weight: bold;
+
             display: inline-block;
+
             width: 1.2rem;
+
             margin-left: -1.2rem;
+
         }
+
+
 
         /* Media / Asset Containers */
+
         .asset-wrapper {
+
             background-color: #050709 !important;
+
             border: 1px solid #21262d !important;
+
             border-radius: 4px;
+
             padding: 1rem;
+
         }
+
+
 
         /* Badges & Triggers */
+
         .badge-cyan {
+
             background-color: transparent;
-            border: 1px solid #00FFFF; /* Exact neon-cyan theme color */
-            color: #00FFFF; /* Exact neon-cyan theme color */
+
+            border: 1px solid #00f0ff;
+
+            color: #00f0ff;
+
             padding: 4px 8px;
+
             font-size: 0.75rem;
+
             border-radius: 2px;
+
         }
+
         .collapse-btn {
+
             background: transparent;
+
             border: 1px solid #8b949e;
+
             color: #8b949e;
+
             padding: 6px 12px;
+
             font-size: 0.8rem;
+
             border-radius: 4px;
+
             font-family: 'Space Mono', monospace;
+
             transition: all 0.2s ease;
+
         }
+
         .collapse-btn:hover {
-            border-color: #00FFFF; /* Exact neon-cyan theme color */
-            color: #00FFFF; /* Exact neon-cyan theme color */
+
+            border-color: #00f0ff;
+
+            color: #00f0ff;
+
         }
+
         .collapse-btn[aria-expanded="true"]::after {
+
             content: " [ - CLOSE ]";
+
         }
+
         .collapse-btn[aria-expanded="false"]::after {
+
             content: " [ + READ FULL ARTICLE ]";
+
         }
+
+
 
         /* Blockquotes */
+
         .custom-quote {
-            border-left: 2px solid #00FFFF; /* Exact neon-cyan theme color */
+
+            border-left: 2px solid #00f0ff;
+
             background-color: #050709;
+
             padding: 10px 15px;
+
             color: #8b949e;
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
+
+    <!-- Main Navigation Bar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark py-3">
+
         <div class="container">
+
             <a class="navbar-brand fw-bold" href="index.html">BENJAMIN_GEE_</a>
+
             <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
+
             <div class="collapse navbar-collapse" id="mainNavbar">
+
                 <ul class="navbar-nav ms-auto gap-2 mb-0">
+
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
                 </ul>
+
             </div>
+
         </div>
+
     </nav>
 
+
+
+    <!-- Main Dynamic Interface Layout -->
+
     <main class="container py-5">
+
         <header class="header-card p-4 mb-5 shadow-sm">
+
             <h1 class="display-5 fw-bold mb-2 text-white">Blog</h1>
+
             <p class="text-muted text-monospace mb-0">// Log files recording technical progression and milestones.</p>
+
         </header>
 
+
+
         <div class="row">
+
+            <!-- Left Navigation: Month Sidebar Index -->
+
             <aside class="col-md-3 mb-4">
+
                 <div class="archive-sidebar p-4 shadow-sm">
+
                     <h5 class="text-white small fw-bold mb-3">//Index</h5>
+
                     <nav class="small">
+
                         <a class="archive-link" href="#june-2026">&gt; June 2026 (1)</a>
+
                         <a class="archive-link" href="#may-2026">&gt; May 2026 (1)</a>
+
                         <a class="archive-link" href="#april-2026">&gt; April 2026 (2)</a>
+
                         <a class="archive-link" href="#march-2026">&gt; March 2026 (1)</a>
+
                     </nav>
+
                 </div>
+
             </aside>
+
+
+
+            <!-- Main Log Content Stream -->
 
             <div class="col-md-9">
 
+
+
+                <!-- LOG 1: June 2026 -->
+
                 <article id="june-2026" class="blog-card p-4 mb-5 shadow-sm">
+
                     <div class="d-flex justify-content-between align-items-center mb-3">
+
                         <span class="badge badge-cyan">DEEP_DIVE</span>
+
                         <small class="text-muted">2026-06-30</small>
+
                     </div>
+
                     
+
                     <h2 class="h3 fw-bold text-white mb-3">Hello, Australia: The Anatomy of a 10,000-Mile FaceTime Call</h2>
+
                     
+
                     <p>
+
                         Something I’ve been wondering lately as I study my CompTIA Net+ is how long distance video and audio calls work fairly seamlessly, especially when I can remember being a kid in the 2000s and Skype calls being fairly unstable and buggy in a MAN (Metropolitan Area Network) just with my friends playing video games. Since I’m at a fairly early point in my career, having just finished Harvard CS50 and preparing for my MSc as well as Helpdesk roles, this question posed an interesting challenge to investigate.
+
                     </p>
 
+
+
+                    <!-- Collapsible Container for Content -->
+
                     <div class="collapse" id="fullArticleCollapse">
+
                         <p class="mt-3">
+
                             I will try to explain key concepts I discovered in a way that non-technically minded persons can still understand and learn about global communications. Here are my findings, I hope you enjoy the read and find it as interesting as I did! 
+
                         </p>
+
+
 
                         <h4 class="text-white h5 mt-4">// Intro</h4>
+
                         <p>
+
                             When I open Facetime in the UK, and call my girlfriend in Sydney, a simple “Good Morning” has to cross continents, oceans and hemispheres. To me, it seems like magic. To a network engineer, it is a brutal and high-speed race against the laws of physics. 
+
                         </p>
+
                         <p>
+
                             Before we dive in to map the journey to Australia or answer any questions, for those who haven’t studied networking yet, I will do my best to quickly explain the concept of data packets, headers and bandwidth concerning how information is sent.
+
                         </p>
+
+
 
                         <h4 class="text-white h5 mt-4">// Data Packets</h4>
+
                         <p>
+
                             Think of the internet like the postal service. If you have a massive 1,000 page book to send across the world, your first instinct is to pack it into one big cardboard box and ship it. 
-                        </p>
-                        <p>
-                            But imagine if that single box gets lost at sea, damaged or dropped on a conveyor belt. The entire delivery fails. To get that book to its destination, you would have to reprint all 1,000 pages and ship the whole massive box all over again. 
-                        </p>
-                        <p>
-                            On the internet we avoid this nightmare by ripping the pages out, putting each single page into its own small envelope, and mailing them all at once. Those individual envelopes are called <strong>Data Packets</strong>. 
-                        </p>
-                        <p>Sending information this way solves two massive problems:</p>
-                        <p>
-                            Because of the header, the receiving phone knows exactly how to line up all the arriving pieces and glue them back together in the correct order. 
+
                         </p>
 
-                        <h4 class="text-white h5 mt-4">// Bandwidth</h4>
                         <p>
-                            People often think of Bandwidth as internet speed, but it’s actually about width. Think of your internet connection like a water pipe. Bandwidth isn’t how fast the water flows, it’s how wide the pipe is. 
+
+                            But imagine if that single box gets lost at sea, damaged or dropped on a conveyor belt. The entire delivery fails. To get that book to its destination, you would have to reprint all 1,000 pages and ship the whole massive box all over again. 
+
                         </p>
-                        <ul class="mb-4">
-                            <li>Low bandwidth is a narrow straw - only a few packets can squeeze through at a time.</li>
-                            <li>High bandwidth is a massive firehose - millions of packets can rush through simultaneously, allowing for crisp, HD video.</li>
+
+                        <p>
+
+                            On the internet we avoid this nightmare by ripping the pages out, putting each single page into its own small envelope, and mailing them all at once. Those individual envelopes are called <strong>Data Packets</strong>. 
+
+                        </p>
+
+                        <p>Sending information this way solves two massive problems:</p>
+
+                        <ul class="mb-3">
+
+                            <li><strong>Fixing mistakes quickly (packet loss):</strong> If 999 envelopes arrive safely in Sydney but envelope #45 gets dropped in the mud along the way, we don’t need to resend the whole book, just that one page. If for some reason we can’t re-send that page, chances are the book is still fairly comprehensible without it, unless we’re really unlucky. This holds true for a website, where we could be missing an image or paragraph of text, but the general website still works.</li>
+
+                            <li><strong>Avoiding traffic jams:</strong> Big boxes clog up the system. Small envelopes can weave through different mail trucks, planes, and sorting centers dynamically, utilising every bit of available space in the network.</li>
+
                         </ul>
+
+
+
+                        <h4 class="text-white h5 mt-4">// The Packet Header</h4>
+
+                        <p>Every single packet (or envelope) has a digital label slapped onto it called a <strong>Header</strong>. This header contains crucial information, including:</p>
+
+                        <ul class="mb-3">
+
+                            <li>Who sent it (My IP address in the UK)</li>
+
+                            <li>Where it’s going (Angela’s IP address in Sydney)</li>
+
+                            <li>The page number (e.g. "This is piece #452 of the video")</li>
+
+                        </ul>
+
+                        <p>
+
+                            Because of the header, the receiving phone knows exactly how to line up all the arriving pieces and glue them back together in the correct order. 
+
+                        </p>
+
+
+
+                        <h4 class="text-white h5 mt-4">// Bandwidth</h4>
+
+                        <p>
+
+                            People often think of Bandwidth as internet speed, but it’s actually about width. Think of your internet connection like a water pipe. Bandwidth isn’t how fast the water flows, it’s how wide the pipe is. 
+
+                        </p>
+
+                        <ul class="mb-4">
+
+                            <li>Low bandwidth is a narrow straw - only a few packets can squeeze through at a time.</li>
+
+                            <li>High bandwidth is a massive firehose - millions of packets can rush through simultaneously, allowing for crisp, HD video.</li>
+
+                        </ul>
+
+
 
                         <hr class="border-secondary my-4">
 
+
+
                         <p class="lead text-white small fw-bold">// BACK TO THE TOPIC: WHAT HAPPENS WHEN I DIAL?</p>
 
+
+
                         <h4 class="text-white h5 mt-4">// Phase 1: Managing the Data (The OS and Encapsulation)</h4>
+
                         <p>
+
                             Before anything actually leaves my phone, my voice and video have to be digitised. Apple uses advanced codecs like H.264 or H.265 (HEVC) for video and AAC-ELD for audio to compress massive raw data into tiny, manageable pieces. 
+
                         </p>
+
                         <p>
+
                             Facetime uses <strong>UDP (User Datagram Protocol)</strong> rather than TCP (Transmission Control Protocol). If we used TCP, every single lost frame of video would require a retransmission request. By the time it arrived, the conversation would have moved on. UDP just streams the packets relentlessly. If a packet drops, your screen glitches for a millisecond, but the live conversation keeps moving. 
+
                         </p>
+
+
 
                         <h4 class="text-white h5 mt-4">// Phase 2: The Physical Journey (The Deep Sea and Fiber Optics)</h4>
+
                         <p>
+
                             Once the packets leave my home router, they hit the backbone of the internet. They aren't bouncing off satellites in space. Instead, they travel along submarine fiber optic cables resting on the dark ocean floor. The traffic might route through Egypt and the Red Sea, snake around India, pass Singapore, and finally dive down the eastern coast of Australia to drop into a data center in Sydney. 
+
                         </p>
+
                         <p>
+
                             Because the signal travels through glass fiber at roughly 200,000km/s, the entire 20,000km trek through ocean abysses and across continents takes roughly 100 milliseconds one way. Light also degrades over distance, requiring underwater optical amplifiers powered by high-voltage copper lines running inside the cable every 50 to 80 kilometers.
+
                         </p>
+
+
+
+                        <!-- Cleaned-up path for Network Diagram -->
 
                         <div class="my-4 text-center asset-wrapper">
+
                             <img src="assets/diagram.png" alt="Network path diagram from Manchester to Sydney" class="img-fluid rounded border border-secondary shadow-sm">
+
                             <div class="form-text text-muted mt-2 small">Diagram: Tracing data packets across subsea and terrestrial fiber systems.</div>
+
                         </div>
 
+
+
                         <p>
+
                             Both of these massive data streams pass each other on the exact same fiber optic lines at the speed of light without colliding. Her Australian ISP might have a cheaper and faster routing agreement that sends her outbound traffic across the Pacific Ocean, hitting landing stations in Hawaii and LA, crossing the continental United States via terrestrial fiber, and jumping the Atlantic to hit the UK from the west.
+
                         </p>
+
+
 
                         <h5 class="text-white mt-4 small fw-bold">// EXPANDED MAP TRAJECTORY:</h5>
+
                         
+
                         <p><strong>UK:</strong> My phone pushes data through my router, running via the local exchange to the UK’s main international subsea landing stations in Cornwall. The data dives into the Atlantic Ocean, wraps past Portugal, and enters the Mediterranean via the Strait of Gibraltar.</p>
+
                         
+
                         <p><strong>The Mediterranean and Egyptian Bottleneck:</strong> The pulses dash across the Mediterranean seabed to Alexandria, Egypt. The data exits the ocean here and runs along highly guarded terrestrial fiber cables buried across Egypt, following the Suez Canal down to Suez.</p>
+
                         
+
                         <div class="custom-quote my-3 small rounded">
+
                             Notice: This tiny strip of land represents one of the single biggest points of failure for global internet traffic.
+
                         </div>
+
                         
+
                         <p>The signal then dives back underwater into the Red Sea, tracing past Saudi Arabia and Yemen out into the Gulf of Aden.</p>
+
                         
+
                         <p><strong>The Middle East Hub (Oman):</strong> The packets land in Muscat, Oman, a massive digital crossroads linking Europe to Asia. From Muscat, my data hops onto a specialized deep-sea superhighway like the Oman Australia Cable (OAC) dipping directly across the floor of the Indian Ocean.</p>
+
                         
+
                         <p><strong>The Indian Ocean and Perth:</strong> The pulses of light travel completely uninterrupted for nearly 10,000km across the vast, dark floor of the Indian Ocean, landing at the beach landing station in Perth, Western Australia.</p>
+
                         
-                        <p><strong>Australia:</strong> From Perth, the signal hops onto Australia’s newly active SMAP subsea cable (Sydney-Melbourne-Adelaide-Perth). It dives back into the ocean, hugging the southern coast of Australia before rocketen through the Great Australian Bight, passing Adelaide and Melbourne and turning north to land in Sydney where it hits the local tower or Wi-Fi framework.</p>
+
+                        <p><strong>Australia:</strong> From Perth, the signal hops onto Australia’s newly active SMAP subsea cable (Sydney-Melbourne-Adelaide-Perth). It dives back into the ocean, hugging the southern coast of Australia before rocketing through the Great Australian Bight, passing Adelaide and Melbourne and turning north to land in Sydney where it hits the local tower or Wi-Fi framework.</p>
+
+
 
                         <h4 class="text-white h5 mt-4">// FaceTime or Traditional Telephone?</h4>
+
                         <p>
+
                             If I were to pick up a landline or make a standard international phone call to Sydney today, the technology under the hood would look entirely different from FaceTime. It represents the classic networking battle: Circuit Switching vs. Packet Switching.
+
                         </p>
+
                         
+
                         <p><strong>Traditional Phone Calls (Circuit Switching):</strong> Relies on the Public Switched Telephone Network (PSTN) to lock down a continuous, dedicated lane all the way from my house to Sydney. For the entire duration of the call, that specific connection belongs to us alone, proving very expensive and inefficient.</p>
+
+
 
                         <p><strong>FaceTime (Packet Switching):</strong> Doesn't care about private lanes; it uses the standard, open internet. As we established with our postal envelopes, your voice and video are chopped into millions of data packets and thrown onto the global internet highway alongside Netflix streams, emails, and everyone else's data, making it highly efficient and virtually free.</p>
 
+
+
                         <h4 class="text-white h5 mt-4">// 2000s Skype Compared to Now</h4>
+
                         <p>
+
                             Remembering how unstable local Skype calls were in the mid-2000s compared to global calls today highlights exactly how far infrastructure has evolved:
+
                         </p>
+
                         <ul class="mb-3">
+
                             <li><strong>P2P Architecture vs. Edge Infrastructure:</strong> Early Skype forced home computers to act as mini-servers, throttling local hardware. FaceTime offloads this processing to robust edge data centers.</li>
+
                             <li><strong>Asymmetric DSL Speed Bottlenecks:</strong> Legacy home connections choked on tiny, asymmetric upload limitations (often under 512 Kbps). Today's synchronous fiber loops offer deep lanes for video transfer.</li>
+
                             <li><strong>Legacy Compression Algorithms:</strong> Old codecs required massive pools of raw throughput to assemble basic, low-resolution streams. Masterfully built engines like H.265 pack vibrant video arrays into tight, lightweight footprints.</li>
+
                         </ul>
 
+
+
                         <h4 class="text-white h5 mt-4">// Latency, Jitter, and Dropped Frames</h4>
+
                         <p><strong>The Math of Latency:</strong> Inside a glass fiber-optic cable, light slows down by about 30%, traveling at roughly 200,000km/s. The physical cable distance from the UK to Sydney sits around 17,000km to 20,000km depending on the active routing layer. A standard Round Trip Time (RTT) lands between 265ms to 280ms, generating that subtle conversational overlap.</p>
+
                         
+
                         <p><strong>The Causes of Glitches:</strong> Instabilities typically emerge from three separate environments: <strong>Jitter</strong> (the variance in packet arrival times across routers), the <strong>"Last Mile" Bottleneck</strong> (Wi-Fi band switching or localized cellular tower handover dropouts), and <strong>Route Flapping</strong> (abrupt BGP path recalculations if an edge node encounters unexpected downtime).</p>
 
+
+
                         <h4 class="text-white h5 mt-4">// Conclusion</h4>
+
                         <p>
-                            Investigating this mapping turned a routine, everyday piece of magic into a masterclass in global engineering. Going from the foundational programming concepts of CS50 to tracing the physical realities of
+
+                            Investigating this mapping turned a routine, everyday piece of magic into a masterclass in global engineering. Going from the foundational programming concepts of CS50 to tracing the physical realities of BGP routing and subsea repeaters has completely reframed how I look at modern networks. As I step into my Master’s program and prepare for IT Helpdesk roles, this is exactly the kind of structural problem-solving I want to bring to the table.
+
+                        </p>
+
+                        <p class="fw-bold mt-4 text-info">_ EOF_LOG_</p>
+
+                    </div>
+
+
+
+                    <!-- Clean Trigger Button for Expand/Collapse -->
+
+                    <div class="mt-3">
+
+                        <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#fullArticleCollapse" aria-expanded="false" aria-controls="fullArticleCollapse"></button>
+
+                    </div>
+
+                </article>
+
+
+
+
+
+                <!-- LOG 2: May 2026 -->
+
+                <article id="may-2026" class="blog-card p-4 mb-5 shadow-sm">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <span class="badge badge-cyan">MILESTONE</span>
+
+                        <small class="text-muted">2026-05-15</small>
+
+                    </div>
+
+                    <h3 class="h5 fw-bold text-white mb-3">Finished CS50! Final Project Showcase</h3>
+
+                    
+
+                    <p>
+
+                        I am incredibly happy to announce that I have officially finished Harvard University's CS50 Introduction to Computer Science! For my Final Project, I built an OpenCV-based virtual drumming setup. It maps out video spaces so you can literally mime hitting invisible boundaries in mid-air that represent drums and play out a rough beat. It was super cool to put together. 
+
+                    </p>
+
+                    <p>
+
+                        Up next on my checklist: studying for the AZ-900 Cloud Fundamentals, tackling the CompTIA Network+, and grinding out some TryHackMe rooms before my Master's program begins. Check out my certificate and project demo below:
+
+                    </p>
+
+
+
+                    <!-- Side-by-Side Video and Certificate Layout -->
+
+                    <div class="row g-3 my-4">
+
+                        <div class="col-md-6 d-flex flex-column">
+
+                            <div class="asset-wrapper flex-grow-1 d-flex flex-column justify-content-center">
+
+                                <div class="ratio ratio-16x9 border border-secondary rounded overflow-hidden bg-black">
+
+                                    <iframe src="https://www.youtube.com/embed/PLwgEBcmur0?si=XezToh3eI5kzPwjG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-text text-muted text-center mt-2 small">Demo: OpenCV Virtual Drums Final Project</div>
+
+                        </div>
+
+                        
+
+                        <div class="col-md-6 d-flex flex-column">
+
+                            <div class="asset-wrapper flex-grow-1 d-flex align-items-center justify-content-center" style="min-height: 200px;">
+
+                                <a href="https://cs50.harvard.edu/certificates/c30944fa-6952-4a27-8445-45e352b872ed" target="_blank" title="Click to verify official CS50 certificate">
+
+                                    <img src="assets/cert.png" alt="Official CS50 Certificate for Benjamin Gee" class="img-fluid rounded border border-secondary shadow-sm" style="max-height: 200px; width: auto; object-fit: contain;">
+
+                                </a>
+
+                            </div>
+
+                            <div class="form-text text-muted text-center mt-2 small">Official Harvard CS50 Certificate (Click to Verify)</div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <p class="mb-0 text-muted small">// End Entry</p>
+
+                </article>
+
+
+
+
+
+                <!-- LOG 3: April 2026 (Progress) -->
+
+                <article id="april-2026" class="blog-card p-4 mb-4 shadow-sm">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <span class="badge badge-cyan">SYS_UPDATE</span>
+
+                        <small class="text-muted">2026-04-22</small>
+
+                    </div>
+
+                    <h3 class="h5 fw-bold text-white mb-3">CS50 Progress Update</h3>
+
+                    <p class="mb-0">
+
+                       Currently working on my secret CS50 Final Project. Not long til the course is complete. Super excited to receive my certificate signed by Harvard Professor David J Malan and a nice T shirt too! I also built a mini-LCD screen display on my Arduino with a potentiometer controlling the brightness, to display a congratulatory message for my sister and her partner who became engaged this week. I will upload the schematics and documentation to my project page later this week.
+
+                    </p>
+
+                </article>
+
+
+
+
+
+                <!-- LOG 4: April 2026 (MSc Offer) -->
+
+                <article class="blog-card p-4 mb-4 shadow-sm">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <span class="badge badge-cyan">SYS_UPDATE</span>
+
+                        <small class="text-muted">2026-04-05</small>
+
+                    </div>
+
+                    <h3 class="h5 fw-bold text-white mb-3">MSc Academic Placement Update</h3>
+
+                    <p class="mb-0">
+
+                        So happy to announce I've received an unconditional offer for the MSc Computer Science at Manchester Metropolitan. The goal for the next few months is to sharpen my C and C++ skills before the first year begins. By September I aim to be applying for internships and other opportunities for my placement year. Time to work hard and improve my skills!
+
+                    </p>
+
+                </article>
+
+
+
+
+
+                <!-- LOG 5: March 2026 -->
+
+                <article id="march-2026" class="blog-card p-4 mb-4 shadow-sm">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <span class="badge badge-cyan">SYS_UPDATE</span>
+
+                        <small class="text-muted">2026-03-01</small>
+
+                    </div>
+
+                    <h3 class="h5 fw-bold text-white mb-3">Initialization: Harvard's CS50</h3>
+
+                    <p class="mb-0">
+
+                        Harvard University's Intro to Computer Science, or CS50, has been the focus of my time the past couple months. First starting with C, later moving to Python, and now HTML, CSS and JavaScript, I've been working on this website and my final project as the course draws to a close. Massive thank you to Harvard University and Professor David J Malan for offering this incredible course, to anyone in the world, for FREE! I'm also interested in COMPTIA's A+ Cert for some entry-level roles to start my career.
+
+                    </p>
+
+                </article>
+
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Bootstrap 5 JS Bundle -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html> 
+
