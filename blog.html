@@ -7,6 +7,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .archive-sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        .collapse-btn[aria-expanded="true"]::after {
+            content: " Show Less";
+        }
+        .collapse-btn[aria-expanded="false"]::after {
+            content: " Read Full Article";
+        }
+    </style>
 </head>
 <body class="bg-dark text-light">
 
@@ -32,11 +44,33 @@
         <h1 class="display-4 fw-bold mb-2">Blog</h1>
         <p class="text-info mb-5">// Documenting my learning journey and milestones.</p>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
+        <div class="row">
+            <!-- Left Sidebar: Archive Month Index -->
+            <aside class="col-md-3 mb-4">
+                <div class="archive-sidebar p-3 bg-dark border border-secondary rounded shadow-sm">
+                    <h5 class="text-info fw-bold mb-3">// Archive Index</h5>
+                    <ul class="nav flex-column gap-2 text-monospace small">
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-0" href="#june-2026">&gt; June 2026 (1)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-0" href="#may-2026">&gt; May 2026 (1)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-0" href="#april-2026">&gt; April 2026 (2)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-0" href="#march-2026">&gt; March 2026 (1)</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content Area: Blog Posts -->
+            <div class="col-md-9">
 
                 <!-- POST 1: June 2026 - Australia FaceTime Article -->
-                <article class="p-4 bg-dark border border-secondary rounded mb-5 shadow-sm">
+                <article id="june-2026" class="p-4 bg-dark border border-secondary rounded mb-5 shadow-sm">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge bg-info text-dark text-uppercase fw-bold">Deep Dive</span>
                         <small class="text-muted">June 2026</small>
@@ -45,170 +79,182 @@
                     <h2 class="h3 fw-bold text-white mb-3">Hello, Australia: The Anatomy of a 10,000-Mile FaceTime Call</h2>
                     
                     <p>
-                        Something I’ve been wondering lately as I study my CompTIA Net+ is how long distance video and audio calls work fairly seamlessly, especially when I can remember being a kid in the 2000s and Skype calls being fairly unstable and buggy in a MAN (Metropolitan Area Network) just with my friends playing video games. Since I’m at a fairly early point in my career, having just finished Harvard CS50 and preparing for my MSc as well as Helpdesk roles, this question posed an interesting challenge to investigate. I will try to explain key concepts I discovered in a way that non-technically minded persons can still understand and learn about global communications. Here are my findings, I hope you enjoy the read and find it as interesting as I did! 
+                        Something I’ve been wondering lately as I study my CompTIA Net+ is how long distance video and audio calls work fairly seamlessly, especially when I can remember being a kid in the 2000s and Skype calls being fairly unstable and buggy in a MAN (Metropolitan Area Network) just with my friends playing video games. Since I’m at a fairly early point in my career, having just finished Harvard CS50 and preparing for my MSc as well as Helpdesk roles, this question posed an interesting challenge to investigate.
                     </p>
 
-                    <h4 class="text-info mt-4">Intro</h4>
-                    <p>
-                        When I open Facetime in the UK, and call my girlfriend in Sydney, a simple “Good Morning” has to cross continents, oceans and hemispheres. To me, it seems like magic. To a network engineer, it is a brutal and high-speed race against the laws of physics. 
-                    </p>
-                    <p>
-                        Before we dive in to map the journey to Australia or answer any questions, for those who haven’t studied networking yet, I will do my best to quickly explain the concept of data packets, headers and bandwidth concerning how information is sent.
-                    </p>
+                    <!-- Collapsible Container for Long Content -->
+                    <div class="collapse" id="fullArticleCollapse">
+                        <p>
+                            I will try to explain key concepts I discovered in a way that non-technically minded persons can still understand and learn about global communications. Here are my findings, I hope you enjoy the read and find it as interesting as I did! 
+                        </p>
 
-                    <h4 class="text-info mt-4">Data Packets</h4>
-                    <p>
-                        Think of the internet like the postal service. If you have a massive 1,000 page book to send across the world, your first instinct is to pack it into one big cardboard box and ship it. 
-                    </p>
-                    <p>
-                        But imagine if that single box gets lost at sea, damaged or dropped on a conveyor belt. The entire delivery fails. To get that book to its destination, you would have to reprint all 1,000 pages and ship the whole massive box all over again. 
-                    </p>
-                    <p>
-                        On the internet we avoid this nightmare by ripping the pages out, putting each single page into its own small envelope, and mailing them all at once. Those individual envelopes are called <strong>Data Packets</strong>. 
-                    </p>
-                    <p>Sending information this way solves two massive problems:</p>
-                    <ul>
-                        <li><strong>Fixing mistakes quickly (packet loss):</strong> If 999 envelopes arrive safely in Sydney but envelope #45 gets dropped in the mud along the way, we don’t need to resend the whole book, just that one page. If for some reason we can’t re-send that page, chances are the book is still fairly comprehensible without it, unless we’re really unlucky. This holds true for a website, where we could be missing an image or paragraph of text, but the general website still works.</li>
-                        <li><strong>Avoiding traffic jams:</strong> Big boxes clog up the system. Small envelopes can weave through different mail trucks, planes, and sorting centers dynamically, utilising every bit of available space in the network.</li>
-                    </ul>
+                        <h4 class="text-info mt-4">Intro</h4>
+                        <p>
+                            When I open Facetime in the UK, and call my girlfriend in Sydney, a simple “Good Morning” has to cross continents, oceans and hemispheres. To me, it seems like magic. To a network engineer, it is a brutal and high-speed race against the laws of physics. 
+                        </p>
+                        <p>
+                            Before we dive in to map the journey to Australia or answer any questions, for those who haven’t studied networking yet, I will do my best to quickly explain the concept of data packets, headers and bandwidth concerning how information is sent.
+                        </p>
 
-                    <h4 class="text-info mt-4">The Packet Header</h4>
-                    <p>Every single packet (or envelope) has a digital label slapped onto it called a <strong>Header</strong>. This header contains crucial information, including:</p>
-                    <ul>
-                        <li>Who sent it (My IP address in the UK)</li>
-                        <li>Where it’s going (Angela’s IP address in Sydney)</li>
-                        <li>The page number (e.g. “This is piece #452 of the video”)</li>
-                    </ul>
-                    <p>
-                        Because of the header, the receiving phone knows exactly how to line up all the arriving pieces and glue them back together in the correct order. 
-                    </p>
+                        <h4 class="text-info mt-4">Data Packets</h4>
+                        <p>
+                            Think of the internet like the postal service. If you have a massive 1,000 page book to send across the world, your first instinct is to pack it into one big cardboard box and ship it. 
+                        </p>
+                        <p>
+                            But imagine if that single box gets lost at sea, damaged or dropped on a conveyor belt. The entire delivery fails. To get that book to its destination, you would have to reprint all 1,000 pages and ship the whole massive box all over again. 
+                        </p>
+                        <p>
+                            On the internet we avoid this nightmare by ripping the pages out, putting each single page into its own small envelope, and mailing them all at once. Those individual envelopes are called <strong>Data Packets</strong>. 
+                        </p>
+                        <p>Sending information this way solves two massive problems:</p>
+                        <ul>
+                            <li><strong>Fixing mistakes quickly (packet loss):</strong> If 999 envelopes arrive safely in Sydney but envelope #45 gets dropped in the mud along the way, we don’t need to resend the whole book, just that one page. If for some reason we can’t re-send that page, chances are the book is still fairly comprehensible without it, unless we’re really unlucky. This holds true for a website, where we could be missing an image or paragraph of text, but the general website still works.</li>
+                            <li><strong>Avoiding traffic jams:</strong> Big boxes clog up the system. Small envelopes can weave through different mail trucks, planes, and sorting centers dynamically, utilising every bit of available space in the network.</li>
+                        </ul>
 
-                    <h4 class="text-info mt-4">Bandwidth</h4>
-                    <p>
-                        People often think of Bandwidth as internet speed, but it’s actually about width. Think of your internet connection like a water pipe. Bandwidth isn’t how fast the water flows, it’s how wide the pipe is. 
-                    </p>
-                    <ul>
-                        <li>Low bandwidth is a narrow straw - only a few packets can squeeze through at a time.</li>
-                        <li>High bandwidth is a massive firehose - millions of packets can rush through simultaneously, allowing for crisp, HD video.</li>
-                    </ul>
+                        <h4 class="text-info mt-4">The Packet Header</h4>
+                        <p>Every single packet (or envelope) has a digital label slapped onto it called a <strong>Header</strong>. This header contains crucial information, including:</p>
+                        <ul>
+                            <li>Who sent it (My IP address in the UK)</li>
+                            <li>Where it’s going (Angela’s IP address in Sydney)</li>
+                            <li>The page number (e.g. “This is piece #452 of the video”)</li>
+                        </ul>
+                        <p>
+                            Because of the header, the receiving phone knows exactly how to line up all the arriving pieces and glue them back together in the correct order. 
+                        </p>
 
-                    <hr class="border-secondary my-4">
+                        <h4 class="text-info mt-4">Bandwidth</h4>
+                        <p>
+                            People often think of Bandwidth as internet speed, but it’s actually about width. Think of your internet connection like a water pipe. Bandwidth isn’t how fast the water flows, it’s how wide the pipe is. 
+                        </p>
+                        <ul>
+                            <li>Low bandwidth is a narrow straw - only a few packets can squeeze through at a time.</li>
+                            <li>High bandwidth is a massive firehose - millions of packets can rush through simultaneously, allowing for crisp, HD video.</li>
+                        </ul>
 
-                    <p class="lead text-white fw-bold">Now, back to the topic at hand. What is actually happening the second I hit dial?</p>
+                        <hr class="border-secondary my-4">
 
-                    <h4 class="text-info mt-4">Phase 1: Managing the Data (The OS and Encapsulation)</h4>
-                    <p>
-                        Before anything actually leaves my phone, my voice and video have to be digitised. Apple uses advanced codecs like H.264 or H.265 (HEVC) for video and AAC-ELD for audio to compress massive raw data into tiny, manageable pieces. 
-                    </p>
-                    <p>
-                        Facetime uses <strong>UDP (User Datagram Protocol)</strong> rather than TCP (Transmission Control Protocol). If we used TCP, every single lost frame of video would require a retransmission request. By the time it arrived, the conversation would have moved on. UDP just streams the packets relentlessly. If a packet drops, your screen glitches for a millisecond, but the live conversation keeps moving. 
-                    </p>
+                        <p class="lead text-white fw-bold">Now, back to the topic at hand. What is actually happening the second I hit dial?</p>
 
-                    <h4 class="text-info mt-4">Phase 2: The Physical Journey (The Deep Sea and Fiber Optics)</h4>
-                    <p>
-                        Once the packets leave my home router, they hit the backbone of the internet. They aren't bouncing off satellites in space (that would add massive delay). Instead, they travel along submarine fiber optic cables resting on the dark ocean floor. The traffic might route through Egypt and the Red Sea, snake around India, pass Singapore, and finally dive down the eastern coast of Australia to drop into a data center in Sydney. 
-                    </p>
-                    <p>
-                        Because the signal travels through glass fiber at roughly 200,000km/s, the entire 20,000km trek through ocean abysses and across continents takes roughly 100 milliseconds one way. 
-                    </p>
-                    <p>
-                        Light also degrades over distance. Every 50 to 80 kilometers along the ocean floor, the cable passes through a submarine repeater, which is essentially an underwater optical amplifier powered by high-voltage copper lines running inside the cable to boost the signal so it doesn’t fade into nothingness. While people commonly think these cables are massive, the deep-sea portions are only about the diameter of a garden hose, and the data inside travels on strands of glass as thin as a human hair. 
-                    </p>
-                    <p>
-                        Here I have created a rough diagram illustrating a path the data could take from my phone (sender) to my partner’s phone. It’s also important to note that the inverse is also happening simultaneously from her phone. Also, the data could take an entirely different path. 
-                    </p>
+                        <h4 class="text-info mt-4">Phase 1: Managing the Data (The OS and Encapsulation)</h4>
+                        <p>
+                            Before anything actually leaves my phone, my voice and video have to be digitised. Apple uses advanced codecs like H.264 or H.265 (HEVC) for video and AAC-ELD for audio to compress massive raw data into tiny, manageable pieces. 
+                        </p>
+                        <p>
+                            Facetime uses <strong>UDP (User Datagram Protocol)</strong> rather than TCP (Transmission Control Protocol). If we used TCP, every single lost frame of video would require a retransmission request. By the time it arrived, the conversation would have moved on. UDP just streams the packets relentlessly. If a packet drops, your screen glitches for a millisecond, but the live conversation keeps moving. 
+                        </p>
 
-                    <!-- Network Diagram Placement -->
-                    <div class="my-4 text-center bg-black p-3 border border-secondary rounded">
-                        <img src="Screenshot 2026-07-01 at 23.40.49.jpg" alt="Network path diagram from Manchester to Sydney" class="img-fluid rounded">
-                        <div class="form-text text-muted mt-2">Diagram: Tracing data packets across subsea and terrestrial fiber cables.</div>
+                        <h4 class="text-info mt-4">Phase 2: The Physical Journey (The Deep Sea and Fiber Optics)</h4>
+                        <p>
+                            Once the packets leave my home router, they hit the backbone of the internet. They aren't bouncing off satellites in space (that would add massive delay). Instead, they travel along submarine fiber optic cables resting on the dark ocean floor. The traffic might route through Egypt and the Red Sea, snake around India, pass Singapore, and finally dive down the eastern coast of Australia to drop into a data center in Sydney. 
+                        </p>
+                        <p>
+                            Because the signal travels through glass fiber at roughly 200,000km/s, the entire 20,000km trek through ocean abysses and across continents takes roughly 100 milliseconds one way. 
+                        </p>
+                        <p>
+                            Light also degrades over distance. Every 50 to 80 kilometers along the ocean floor, the cable passes through a submarine repeater, which is essentially an underwater optical amplifier powered by high-voltage copper lines running inside the cable to boost the signal so it doesn’t fade into nothingness. While people commonly think these cables are massive, the deep-sea portions are only about the diameter of a garden hose, and the data inside travels on strands of glass as thin as a human hair. 
+                        </p>
+                        <p>
+                            Here I have created a rough diagram illustrating a path the data could take from my phone (sender) to my partner’s phone. It’s also important to note that the inverse is also happening simultaneously from her phone. Also, the data could take an entirely different path. 
+                        </p>
+
+                        <!-- Corrected Network Diagram Asset Path -->
+                        <div class="my-4 text-center bg-black p-3 border border-secondary rounded">
+                            <img src="Screenshot 2026-07-01 at 23.49.33.png" alt="Network path diagram from Manchester to Sydney" class="img-fluid rounded">
+                            <div class="form-text text-muted mt-2">Diagram: Tracing data packets across subsea and terrestrial fiber cables.</div>
+                        </div>
+
+                        <p>
+                            Both of these massive data streams pass each other on the exact same fiber optic lines at the speed of light without colliding. Her Australian ISP might have a cheaper and faster routing agreement that sends her outbound traffic across the Pacific Ocean, hitting landing stations in Hawaii and LA, crossing the continental United States via terrestrial fiber, and jumping the Atlantic to hit the UK from the west.
+                        </p>
+                        <p>
+                            Even your own data packets don’t follow each other like train cars, so if a router in Oman hits a sudden millisecond spike in traffic, the Border Gateway Protocol (BGP) might instantly route your next packet through an alternate cable system via Central Asia. 
+                        </p>
+
+                        <h5 class="text-white mt-4 fw-bold">Here’s the journey in slightly more detail:</h5>
+                        
+                        <p><strong>UK:</strong> My phone pushes data through my router, which runs via the local exchange to the UK’s main international subsea landing stations (often Bude or Goonhilly in Cornwall). The data dives into the Atlantic Ocean, wraps around the coast of Portugal, and enters the Mediterranean Sea through the Strait of Gibraltar.</p>
+                        
+                        <p><strong>The Mediterranean and Egyptian Bottleneck:</strong> The fiber optic pulses dash across the Mediterranean seabed to Alexandria, Egypt. Because Africa and Asia are connected by land, the data has to exit the ocean. It runs along highly guarded terrestrial fiber cables buried across Egypt, following the Suez Canal down to Suez.</p>
+                        
+                        <blockquote class="blockquote border-start border-info ps-3 my-3 text-muted fs-6">
+                            Fun Fact: This tiny strip of land is one of the biggest single points of failure for global internet traffic! 
+                        </blockquote>
+                        
+                        <p>The signal then dives back underwater into the Red Sea, tracing past Saudi Arabia and Yemen out into the Gulf of Aden.</p>
+                        
+                        <p><strong>The Middle East Hub (Oman):</strong> The packets land in Muscat, Oman, a massive digital crossroads linking Europe to Asia. From Muscat, my data hops onto a specialized deep-sea superhighway like the Oman Australia Cable (OAC). This cable bypasses traditional congestion zones by diving straight into the deep waters of the Indian Ocean.</p>
+                        
+                        <p><strong>The Indian Ocean and Perth:</strong> The pulses of light travel completely uninterrupted for nearly 10,000km across the vast, dark floor of the Indian Ocean. The data finally arrives on Australian soil at the beach landing station in Perth, Western Australia.</p>
+                        
+                        <p><strong>Australia:</strong> Perth still isn’t Sydney, and the data has 4,000km left to travel. Instead of using older landlines across the Outback, the signal hops onto Australia’s newly active SMAP subsea cable (Sydney-Melbourne-Adelaide-Perth). It dives back into the ocean, hugging the southern coast of Australia before rocketing through the Great Australian Bight, passing Adelaide and Melbourne and finally turning north. Finally, the cable lands in Sydney, terminates at a local exchange, bounces through the cellular tower or Wi-Fi network closest to my partner and rings her phone.</p>
+
+                        <p class="small text-muted italic">
+                            Disclaimer: Again, it’s important to note that the data packets might not take this exact path every time, or may take a completely different path. This is just an example to show the complex systems and infrastructure behind a simple FaceTime call. 
+                        </p>
+
+                        <h4 class="text-info mt-4">FaceTime or Traditional Telephone?</h4>
+                        <p>
+                            If I were to pick up a landline or make a standard international phone call to Sydney today, the technology under the hood would look entirely different from FaceTime. It represents the classic networking battle: Circuit Switching vs. Packet Switching.
+                        </p>
+                        
+                        <p><strong>The Old Way: Traditional Phone Calls (Circuit Switching)</strong><br>
+                        Traditional phone calls rely on the Public Switched Telephone Network (PSTN). When you dial an old-school international number, the telephone exchanges physically and digitally lock down a continuous, dedicated lane all the way from your house to Sydney. For the entire duration of the call, that specific connection belongs to you and you alone. No one else can use that capacity.
+                        <br><span class="text-muted">The Catch:</span> Even if both of you fall completely silent for five minutes, that circuit remains wide open and empty. It’s incredibly reliable because your line is guaranteed, but it's wildly inefficient and expensive—which is why international calls historically cost an absolute fortune per minute.</p>
+
+                        <p><strong>The Modern Way: FaceTime (Packet Switching)</strong><br>
+                        FaceTime doesn't care about private lanes; it uses the standard, open internet. As we established with our postal envelopes, your voice and video are chopped into millions of data packets and thrown onto the global internet highway alongside Netflix streams, emails, and everyone else's data. Your packets share the road. They weave through traffic dynamically, and they don't even have to take the same route to get to Sydney.
+                        <br><span class="text-muted">The Catch:</span> It is virtually free and massively efficient because billions of people can share the same undersea cables simultaneously. The only downside is that if the global highway gets gridlocked, your packets arrive late or out of order, leading to that brief screen freeze or robotic audio glitch.</p>
+
+                        <h4 class="text-info mt-4">2000s Skype Compared to Now</h4>
+                        <p>
+                            Remembering how unstable local Skype calls were in the mid-2000s compared to global calls today highlights exactly how far infrastructure has evolved. If the data didn't have to cross an ocean, why did it struggle so much? It boils down to three structural limitations of the era:
+                        </p>
+                        <ul>
+                            <li><strong>Peer-to-Peer (P2P) Overload vs. Cloud Infrastructure:</strong> Early Skype used a peer-to-peer architecture. Instead of your call running through an optimized corporate data center, your home computer and your friend's computer had to act as mini-servers. If your friend's PC started chugging under the weight of a 2005 video game, or if their local connection dipped, the entire call dropped. Today, Apple routes FaceTime through massive, dedicated edge data centers that handle the heavy lifting, ensuring your device's local hardware isn't a bottleneck.</li>
+                            <li><strong>The State of 2000s Home Bandwidth (Asymmetric DSL):</strong> In the 2000s, most homes used early broadband (ADSL). ISPs marketed these connections based on their download speeds, but their <em>upload speeds</em> were devastatingly slow—often capped at a miserable 256 Kbps or 512 Kbps. Because video calls require you to upload your own live video stream simultaneously, homes routinely choked their own narrow upload "straws," causing massive packet loss right at the front door. Today’s fiber and 5G networks offer massive upload bandwidth by comparison.</li>
+                            <li><strong>Antique Codecs:</strong> The software algorithms used to compress audio and video twenty years ago were highly inefficient. They required massive amounts of data to produce pixelated, standard-definition images. Modern codecs like H.265 are masterfully efficient—they can compress an incredibly sharp, high-definition video stream into a fraction of the digital footprint, allowing it to glide seamlessly over paths that would have utterly paralyzed 2000s infrastructure.</li>
+                        </ul>
+
+                        <h4 class="text-info mt-4">Why do we have Delay, Glitches and Latency Issues?</h4>
+                        <p>Modern systems still aren’t perfect, and encounter delays and jitter especially over long distances such as in my case. </p>
+                        
+                        <p><strong>The Math of the Delay (Latency)</strong><br>
+                        Speed of light in a vacuum is fast, but inside a glass fiber-optic cable, light slows down by about 30% (traveling at roughly 200,000km/s). The physical cable distance from the UK to Sydney is roughly 17,000 to 20,000km depending on the route. A standard Round Trip Time (RTT) between London and Sydney is roughly 265ms to 280ms. Any delay under 150ms is imperceptible to most humans. At nearly 300ms, you start getting that classic “international call overlap” where you accidentally talk over each other because your brain expects a faster response.</p>
+                        
+                        <p><strong>Why does the signal cut or glitch?</strong><br>
+                        If the undersea cables are highly optimized, why does the call sometimes turn into a pixelated mess or drop entirely? It usually boils down to three architectural culprits:</p>
+                        <ul>
+                            <li><strong>Jitter:</strong> Because UDP doesn’t guarantee the arrival order of packets, they can arrive scattered. If packet 1 takes a clean route but packet 2 gets stuck behind a massive spike of traffic at a router in Singapore, packet 2 arrives late. This variance in packet arrival time is called Jitter. Facetime uses a “jitter buffer” to hold frames for a split second to smooth things out, but if the variance is too high, the audio drops or the video freezes.</li>
+                            <li><strong>The “Last Mile” Bottleneck:</strong> The undersea cables are incredibly reliable. The weak link is almost always the local connection. If I’m walking into the kitchen and my phone switches from my 5GHz Wi-Fi band to a congested 2.4GHz band, or if my partner is moving between cellular towers in Sydney, packets get dropped right at the finish line.</li>
+                            <li><strong>Route Flapping:</strong> If a major terrestrial router along the path suddenly goes down or experiences a heavy BGP (Border Gateway Protocol) routing update, the internet provider has to dynamically re-route our call on the fly. For a second, your data path “flaps” to a different cable system, causing a temporary freeze.</li>
+                        </ul>
+
+                        <h4 class="text-info mt-4">Conclusion</h4>
+                        <p>
+                            Investigating this mapping turned a routine, everyday piece of magic into a masterclass in global engineering. Going from the foundational programming concepts of CS50 to tracing the physical realities of BGP routing and subsea repeaters has completely reframed how I look at modern networks. 
+                        </p>
+                        <p>
+                            The reason my childhood Skype calls in the 2000s felt so fragile compared to a 10,000-mile FaceTime call today isn't just that our devices got faster. It's that the global infrastructure matured. We laid massive submarine highways like the OAC and SMAP cables, perfected real-time compression codecs, and optimized dynamic routing protocols to handle billions of data packets simultaneously.
+                        </p>
+                        <p>
+                            As I step into my Master’s program and prepare for my first IT Helpdesk roles, this is exactly the kind of structural problem-solving I want to bring to the table. The next time a user calls saying their connection is dropping, I won't just see a software glitch—I’ll see the entire journey from the home router to the finish line, and know exactly where the bottleneck lies. 
+                        </p>
+                        <p>
+                            Until then, I'm just grateful that a 280ms delay is all that stands between the UK and Sydney - at least we don’t have to send postcards and wait for one back! 
+                        </p>
+                        <p class="fw-bold mt-4 text-info">– Ben</p>
                     </div>
 
-                    <p>
-                        Both of these massive data streams pass each other on the exact same fiber optic lines at the speed of light without colliding. Her Australian ISP might have a cheaper and faster routing agreement that sends her outbound traffic across the Pacific Ocean, hitting landing stations in Hawaii and LA, crossing the continental United States via terrestrial fiber, and jumping the Atlantic to hit the UK from the west.
-                    </p>
-                    <p>
-                        Even your own data packets don’t follow each other like train cars, so if a router in Oman hits a sudden millisecond spike in traffic, the Border Gateway Protocol (BGP) might instantly route your next packet through an alternate cable system via Central Asia. 
-                    </p>
-
-                    <h5 class="text-white mt-4 fw-bold">Here’s the journey in slightly more detail:</h5>
-                    
-                    <p><strong>UK:</strong> My phone pushes data through my router, which runs via the local exchange to the UK’s main international subsea landing stations (often Bude or Goonhilly in Cornwall). The data dives into the Atlantic Ocean, wraps around the coast of Portugal, and enters the Mediterranean Sea through the Strait of Gibraltar.</p>
-                    
-                    <p><strong>The Mediterranean and Egyptian Bottleneck:</strong> The fiber optic pulses dash across the Mediterranean seabed to Alexandria, Egypt. Because Africa and Asia are connected by land, the data has to exit the ocean. It runs along highly guarded terrestrial fiber cables buried across Egypt, following the Suez Canal down to Suez.</p>
-                    
-                    <blockquote class="blockquote border-start border-info ps-3 my-3 text-muted fs-6">
-                        Fun Fact: This tiny strip of land is one of the biggest single points of failure for global internet traffic! 
-                    </blockquote>
-                    
-                    <p>The signal then dives back underwater into the Red Sea, tracing past Saudi Arabia and Yemen out into the Gulf of Aden.</p>
-                    
-                    <p><strong>The Middle East Hub (Oman):</strong> The packets land in Muscat, Oman, a massive digital crossroads linking Europe to Asia. From Muscat, my data hops onto a specialized deep-sea superhighway like the Oman Australia Cable (OAC). This cable bypasses traditional congestion zones by diving straight into the deep waters of the Indian Ocean.</p>
-                    
-                    <p><strong>The Indian Ocean and Perth:</strong> The pulses of light travel completely uninterrupted for nearly 10,000km across the vast, dark floor of the Indian Ocean. The data finally arrives on Australian soil at the beach landing station in Perth, Western Australia.</p>
-                    
-                    <p><strong>Australia:</strong> Perth still isn’t Sydney, and the data has 4,000km left to travel. Instead of using older landlines across the Outback, the signal hops onto Australia’s newly active SMAP subsea cable (Sydney-Melbourne-Adelaide-Perth). It dives back into the ocean, hugging the southern coast of Australia before rocketing through the Great Australian Bight, passing Adelaide and Melbourne and finally turning north. Finally, the cable lands in Sydney, terminates at a local exchange, bounces through the cellular tower or Wi-Fi network closest to my partner and rings her phone.</p>
-
-                    <p class="small text-muted italic">
-                        Disclaimer: Again, it’s important to note that the data packets might not take this exact path every time, or may take a completely different path. This is just an example to show the complex systems and infrastructure behind a simple FaceTime call. 
-                    </p>
-
-                    <h4 class="text-info mt-4">FaceTime or Traditional Telephone?</h4>
-                    <p>
-                        If I were to pick up a landline or make a standard international phone call to Sydney today, the technology under the hood would look entirely different from FaceTime. It represents the classic networking battle: Circuit Switching vs. Packet Switching.
-                    </p>
-                    
-                    <p><strong>The Old Way: Traditional Phone Calls (Circuit Switching)</strong><br>
-                    Traditional phone calls rely on the Public Switched Telephone Network (PSTN). When you dial an old-school international number, the telephone exchanges physically and digitally lock down a continuous, dedicated lane all the way from your house to Sydney. For the entire duration of the call, that specific connection belongs to you and you alone. No one else can use that capacity.
-                    <br><span class="text-muted">The Catch:</span> Even if both of you fall completely silent for five minutes, that circuit remains wide open and empty. It’s incredibly reliable because your line is guaranteed, but it's wildly inefficient and expensive—which is why international calls historically cost an absolute fortune per minute.</p>
-
-                    <p><strong>The Modern Way: FaceTime (Packet Switching)</strong><br>
-                    FaceTime doesn't care about private lanes; it uses the standard, open internet. As we established with our postal envelopes, your voice and video are chopped into millions of data packets and thrown onto the global internet highway alongside Netflix streams, emails, and everyone else's data. Your packets share the road. They weave through traffic dynamically, and they don't even have to take the same route to get to Sydney.
-                    <br><span class="text-muted">The Catch:</span> It is virtually free and massively efficient because billions of people can share the same undersea cables simultaneously. The only downside is that if the global highway gets gridlocked, your packets arrive late or out of order, leading to that brief screen freeze or robotic audio glitch.</p>
-
-                    <h4 class="text-info mt-4">2000s Skype Compared to Now</h4>
-                    <p>
-                        Remembering how unstable local Skype calls were in the mid-2000s compared to global calls today highlights exactly how far infrastructure has evolved. If the data didn't have to cross an ocean, why did it struggle so much? It boils down to three structural limitations of the era:
-                    </p>
-                    <ul>
-                        <li><strong>Peer-to-Peer (P2P) Overload vs. Cloud Infrastructure:</strong> Early Skype used a peer-to-peer architecture. Instead of your call running through an optimized corporate data center, your home computer and your friend's computer had to act as mini-servers. If your friend's PC started chugging under the weight of a 2005 video game, or if their local connection dipped, the entire call dropped. Today, Apple routes FaceTime through massive, dedicated edge data centers that handle the heavy lifting, ensuring your device's local hardware isn't a bottleneck.</li>
-                        <li><strong>The State of 2000s Home Bandwidth (Asymmetric DSL):</strong> In the 2000s, most homes used early broadband (ADSL). ISPs marketed these connections based on their download speeds, but their <em>upload speeds</em> were devastatingly slow—often capped at a miserable 256 Kbps or 512 Kbps. Because video calls require you to upload your own live video stream simultaneously, homes routinely choked their own narrow upload "straws," causing massive packet loss right at the front door. Today’s fiber and 5G networks offer massive upload bandwidth by comparison.</li>
-                        <li><strong>Antique Codecs:</strong> The software algorithms used to compress audio and video twenty years ago were highly inefficient. They required massive amounts of data to produce pixelated, standard-definition images. Modern codecs like H.265 are masterfully efficient—they can compress an incredibly sharp, high-definition video stream into a fraction of the digital footprint, allowing it to glide seamlessly over paths that would have utterly paralyzed 2000s infrastructure.</li>
-                    </ul>
-
-                    <h4 class="text-info mt-4">Why do we have Delay, Glitches and Latency Issues?</h4>
-                    <p>Modern systems still aren’t perfect, and encounter delays and jitter especially over long distances such as in my case. </p>
-                    
-                    <p><strong>The Math of the Delay (Latency)</strong><br>
-                    Speed of light in a vacuum is fast, but inside a glass fiber-optic cable, light slows down by about 30% (traveling at roughly 200,000km/s). The physical cable distance from the UK to Sydney is roughly 17,000 to 20,000km depending on the route. A standard Round Trip Time (RTT) between London and Sydney is roughly 265ms to 280ms. Any delay under 150ms is imperceptible to most humans. At nearly 300ms, you start getting that classic “international call overlap” where you accidentally talk over each other because your brain expects a faster response.</p>
-                    
-                    <p><strong>Why does the signal cut or glitch?</strong><br>
-                    If the undersea cables are highly optimized, why does the call sometimes turn into a pixelated mess or drop entirely? It usually boils down to three architectural culprits:</p>
-                    <ul>
-                        <li><strong>Jitter:</strong> Because UDP doesn’t guarantee the arrival order of packets, they can arrive scattered. If packet 1 takes a clean route but packet 2 gets stuck behind a massive spike of traffic at a router in Singapore, packet 2 arrives late. This variance in packet arrival time is called Jitter. Facetime uses a “jitter buffer” to hold frames for a split second to smooth things out, but if the variance is too high, the audio drops or the video freezes.</li>
-                        <li><strong>The “Last Mile” Bottleneck:</strong> The undersea cables are incredibly reliable. The weak link is almost always the local connection. If I’m walking into the kitchen and my phone switches from my 5GHz Wi-Fi band to a congested 2.4GHz band, or if my partner is moving between cellular towers in Sydney, packets get dropped right at the finish line.</li>
-                        <li><strong>Route Flapping:</strong> If a major terrestrial router along the path suddenly goes down or experiences a heavy BGP (Border Gateway Protocol) routing update, the internet provider has to dynamically re-route our call on the fly. For a second, your data path “flaps” to a different cable system, causing a temporary freeze.</li>
-                    </ul>
-
-                    <h4 class="text-info mt-4">Conclusion</h4>
-                    <p>
-                        Investigating this mapping turned a routine, everyday piece of magic into a masterclass in global engineering. Going from the foundational programming concepts of CS50 to tracing the physical realities of BGP routing and subsea repeaters has completely reframed how I look at modern networks. 
-                    </p>
-                    <p>
-                        The reason my childhood Skype calls in the 2000s felt so fragile compared to a 10,000-mile FaceTime call today isn't just that our devices got faster. It's that the global infrastructure matured. We laid massive submarine highways like the OAC and SMAP cables, perfected real-time compression codecs, and optimized dynamic routing protocols to handle billions of data packets simultaneously.
-                    </p>
-                    <p>
-                        As I step into my Master’s program and prepare for my first IT Helpdesk roles, this is exactly the kind of structural problem-solving I want to bring to the table. The next time a user calls saying their connection is dropping, I won't just see a software glitch—I’ll see the entire journey from the home router to the finish line, and know exactly where the bottleneck lies. 
-                    </p>
-                    <p>
-                        Until then, I'm just grateful that a 280ms delay is all that stands between the UK and Sydney - at least we don’t have to send postcards and wait for one back! 
-                    </p>
-                    <p class="fw-bold mt-4 text-info">– Ben</p>
+                    <!-- Read More / Show Less Clickable Trigger Button -->
+                    <div class="mt-3">
+                        <button class="btn btn-outline-info btn-sm collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#fullArticleCollapse" aria-expanded="false" aria-controls="fullArticleCollapse"></button>
+                    </div>
                 </article>
 
 
-                <!-- POST 2: May 2026 - CS50 Graduation (With Cert & Video) -->
-                <article class="p-4 bg-dark border border-secondary rounded mb-5 shadow-sm">
+                <!-- POST 2: May 2026 - CS50 Graduation (With Corrected Certificate Name) -->
+                <article id="may-2026" class="p-4 bg-dark border border-secondary rounded mb-5 shadow-sm">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge bg-success text-dark text-uppercase fw-bold">Milestone</span>
                         <small class="text-muted">May 2026</small>
@@ -222,7 +268,7 @@
                         A massive thank you to Professor David J. Malan and the entire Harvard team for making such an intensive, transformative course freely available to the world. Up next on my checklist: studying for the AZ-900 Cloud Fundamentals, tackling the CompTIA Network+, and grinding out some TryHackMe rooms before my Master's program begins. Onwards and upwards! Check out my certificate and project demo below:
                     </p>
 
-                    <!-- Side-by-Side YouTube Video and Certificate -->
+                    <!-- Side-by-Side YouTube Video and Certificate Layout -->
                     <div class="row g-4 my-4">
                         <!-- YouTube Embed -->
                         <div class="col-md-6 d-flex flex-column">
@@ -232,11 +278,11 @@
                             <div class="form-text text-muted text-center mt-2">Demo: OpenCV Virtual Drums Final Project</div>
                         </div>
                         
-                        <!-- Certificate Image -->
+                        <!-- Certificate Image with Exact Asset Name -->
                         <div class="col-md-6 d-flex flex-column">
                             <div class="border border-secondary rounded overflow-hidden shadow bg-black flex-grow-1 d-flex align-items-center justify-content-center" style="min-height: 200px;">
                                 <a href="https://cs50.harvard.edu/certificates/c30944fa-6952-4a27-8445-45e352b872ed" target="_blank" title="Click to verify official CS50 certificate">
-                                    <img src="cs50_certificate.png" alt="CS50 Certificate for Benjamin Gee" class="img-fluid rounded" style="max-height: 250px; width: auto; object-fit: contain;">
+                                    <img src="CS50xCERTPNG.png" alt="Official CS50 Certificate for Benjamin Gee" class="img-fluid rounded" style="max-height: 250px; width: auto; object-fit: contain;">
                                 </a>
                             </div>
                             <div class="form-text text-muted text-center mt-2">Official Harvard CS50 Certificate (Click to Verify)</div>
@@ -248,7 +294,7 @@
 
 
                 <!-- POST 3: April 2026 - Original Post (CS50 Progress) -->
-                <article class="p-4 bg-dark border border-secondary rounded mb-4 shadow-sm">
+                <article id="april-2026" class="p-4 bg-dark border border-secondary rounded mb-4 shadow-sm">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge bg-secondary text-uppercase">Update</span>
                         <small class="text-muted">April 2026</small>
@@ -274,7 +320,7 @@
 
 
                 <!-- POST 5: March 2026 - Original Post (Starting CS50) -->
-                <article class="p-4 bg-dark border border-secondary rounded mb-4 shadow-sm">
+                <article id="march-2026" class="p-4 bg-dark border border-secondary rounded mb-4 shadow-sm">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge bg-secondary text-uppercase">Update</span>
                         <small class="text-muted">March 2026</small>
@@ -292,4 +338,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-```eof
